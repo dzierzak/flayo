@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class JobOffer(models.Model):
+class Offer(models.Model):
     title = models.CharField(max_length=64)
     description = models.CharField(max_length=9000)
     salary = models.IntegerField()

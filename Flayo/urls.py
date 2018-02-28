@@ -16,6 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from homepage.views import HomepageView, UserLoginView, UserRegisterView, CompanyRegisterView
+from joboffers.views import OfferAddView, OffersListView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',
+         HomepageView.as_view(), name="homepage-view"),
+    path('add-offer/',
+         OfferAddView.as_view(), name="offer-add-view"),
+    path('login/',
+         UserLoginView.as_view(), name="login-view"),
+    path('signupu/',
+         UserRegisterView.as_view(), name="signupu-view"),
+    path('signupc/',
+         CompanyRegisterView.as_view(), name="signupc-view"),
+    path('offers_list/',
+         OffersListView.as_view(), name="offers-list-view"),
 ]

@@ -1,20 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.views import View
-from .models import JobOffer
-from .forms import *
+from .models import Offer
+from .forms import OfferAddForm
 
 
-class AddJobView(LoginRequiredMixin, CreateView):
+class OfferAddView(LoginRequiredMixin, CreateView):
     login_url = '/login'
 
-    model = JobOffer
-    form_class = AddJobForm
-    template_name = 'joboffer_form.html'
+    model = Offer
+    form_class = OfferAddForm
+    template_name = 'offer_add.html'
 
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.author = self.request.user
         obj.save()
         return redirect('/')
+
+
+# BROWSE OFFERTS VIEW
+class OffersListView(View):
+    def get(self, request):
+        return render(request, 'offers_list.html', {
+
+            'offerts_list': Offer.objects.all()
+})

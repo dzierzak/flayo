@@ -1,14 +1,14 @@
 from django import forms
 from . import validators
-from .models import JobOffer
+from .models import Offer
 
 
 # JOBS
-class AddJobForm(forms.ModelForm):
+class OfferAddForm(forms.ModelForm):
     salary = forms.IntegerField(validators=[validators.validate_salary])
 
     class Meta:
-        model = JobOffer
+        model = Offer
         fields = '__all__'
         widgets = {
             'description': forms.Textarea,

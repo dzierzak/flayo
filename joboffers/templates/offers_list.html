@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+</br></br></br></br>
+        <div align="center">
+<h2><b><a href="/find-offert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FIND JOB</a></b></br></br></br></h2>
+<table>
+    <tr>
+        <td><h2>Nr.	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
+        <td><h2>Title	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
+        <td><h2>Company	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
+        <td><h2>Salary	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
+    </tr>
+    {% for offert in offerts_list %}
+    <tr>
+        <td><h2>{{ forloop.counter }}	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
+
+        <td><h2><a href="/offert/{{ offert.id }}">{{ offert.title }}</a></h2></td>
+
+
+
+         <td><h2><a href="/offert/{{ offert.id }}">&nbsp;	&nbsp;	&nbsp;	&nbsp;{{ offert.company_name }}</a></h2></td>
+
+
+         <td><h2><a href="/offert/{{ offert.id }}">&nbsp;	&nbsp;	&nbsp;	&nbsp;{{ offert.salary }}</a></h2></td>
+
+    </tr>
+
+    {% endfor %}
+    </table>
+</div>
+</br></br></br></br>
+{% endblock %}
