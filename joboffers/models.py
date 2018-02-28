@@ -9,6 +9,7 @@ class Offer(models.Model):
     company_name = models.CharField(max_length=200)
     location = models.CharField(max_length=100)
     author = models.ForeignKey(User, blank=True, on_delete=models.CASCADE)
+    date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.title

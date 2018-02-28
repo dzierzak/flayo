@@ -25,5 +25,5 @@ class OffersListView(View):
     def get(self, request):
         return render(request, 'offers_list.html', {
 
-            'offerts_list': Offer.objects.all()
+            'offers_list': Offer.objects.all().order_by('-id')
 })

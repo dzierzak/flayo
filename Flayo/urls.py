@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from homepage.views import HomepageView, UserLoginView, UserRegisterView, CompanyRegisterView
+from homepage.views import HomepageView, UserLoginView, UserRegisterView, CompanyRegisterView, logout_view
 from joboffers.views import OfferAddView, OffersListView
 
 urlpatterns = [
@@ -33,4 +33,6 @@ urlpatterns = [
          CompanyRegisterView.as_view(), name="signupc-view"),
     path('offers_list/',
          OffersListView.as_view(), name="offers-list-view"),
+    path('logout/',
+         logout_view, name="logout-view"),
 ]

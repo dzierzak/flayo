@@ -2,36 +2,291 @@
 
 
 {% block content %}
-</br></br></br></br>
-        <div align="center">
-<h2><b><a href="/find-offert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FIND JOB</a></b></br></br></br></h2>
-<table>
-    <tr>
-        <td><h2>Nr.	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
-        <td><h2>Title	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
-        <td><h2>Company	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
-        <td><h2>Salary	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
-    </tr>
-    {% for offert in offerts_list %}
-    <tr>
-        <td><h2>{{ forloop.counter }}	&nbsp;	&nbsp;	&nbsp;	&nbsp;</h2></td>
 
-        <td><h2><a href="/offert/{{ offert.id }}">{{ offert.title }}</a></h2></td>
+    	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-default sidebar-separate">
+				<div class="sidebar-content">
+
+					<!-- Sidebar search -->
+					<div class="panel panel-white">
+						<div class="panel-heading">
+							<div class="panel-title text-semibold">
+								<i class="icon-search4 text-size-base position-left"></i>
+								Filter
+							</div>
+						</div>
+
+						<div class="panel-body">
+							<form action="#">
+								<div class="form-group">
+									<div class="has-feedback has-feedback-left">
+										<input type="search" class="form-control" placeholder="Job title or keywords">
+										<div class="form-control-feedback">
+											<i class="icon-reading text-size-large text-muted"></i>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="has-feedback has-feedback-left">
+										<input type="search" class="form-control" placeholder="Location">
+										<div class="form-control-feedback">
+											<i class="icon-pin-alt text-size-large text-muted"></i>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="checkbox">
+										<label class="display-block">
+											<input type="checkbox" class="styled">
+											Full time
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label class="display-block">
+											<input type="checkbox" class="styled">
+											Part time
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label class="display-block">
+											<input type="checkbox" class="styled">
+											Remote
+										</label>
+									</div>
+								</div>
+
+								<button type="submit" class="btn bg-blue btn-block">
+									<i class="icon-search4 text-size-base position-left"></i>
+									Find jobs
+								</button>
+							</form>
+						</div>
+					</div>
+					<!-- /sidebar search -->
+
+
+					<!-- Location selection -->
+					<div class="panel panel-white">
+						<div class="panel-heading">
+							<div class="panel-title text-semibold">
+								<i class="icon-pin-alt position-left"></i>
+								Location
+							</div>
+
+							<div class="heading-elements not-collapsible">
+								<a href="#" class="heading-text">+ Add</a>
+							</div>
+						</div>
+
+						<form action="#">
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="checkbox no-margin-top">
+										<label>
+											<input type="checkbox" class="styled">
+											Amsterdam, North Holland Province, Netherlands
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Koog aan de Zaan, North Holland Province, Netherlands
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Amsterdam Binnenstad en Oostelijk Havengebied, North Holland Province, Netherlands
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Hoofddorp, North Holland Province, Netherlands
+										</label>
+									</div>
+
+									<div class="checkbox no-margin-bottom">
+										<label>
+											<input type="checkbox" class="styled">
+											Alkmaar, North Holland Province, Netherlands
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel-footer no-padding">
+								<a href="#" class="btn btn-default btn-block no-border">All locations</a>
+							</div>
+						</form>
+					</div>
+					<!-- /location selection -->
 
 
 
-         <td><h2><a href="/offert/{{ offert.id }}">&nbsp;	&nbsp;	&nbsp;	&nbsp;{{ offert.company_name }}</a></h2></td>
+
+					<!-- Industry -->
+					<div class="panel panel-white">
+						<div class="panel-heading">
+							<div class="panel-title text-semibold">
+								<i class="icon-collaboration position-left"></i>
+								Industry
+							</div>
+
+							<div class="heading-elements not-collapsible">
+								<a href="#" class="heading-text">+ Add</a>
+							</div>
+						</div>
+
+						<form action="#">
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="checkbox no-margin-top">
+										<label>
+											<input type="checkbox" class="styled">
+											Arts and design
+											<span class="text-muted text-size-small">&nbsp;(32)</span>
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Engineering
+											<span class="text-muted text-size-small">&nbsp;(65)</span>
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Computer Software
+											<span class="text-muted text-size-small">&nbsp;(235)</span>
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Financial Services
+											<span class="text-muted text-size-small">&nbsp;(26)</span>
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Service Industry
+											<span class="text-muted text-size-small">&nbsp;(94)</span>
+										</label>
+									</div>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" class="styled">
+											Healthcare
+											<span class="text-muted text-size-small">&nbsp;(35)</span>
+										</label>
+									</div>
+
+									<div class="checkbox no-margin-bottom">
+										<label>
+											<input type="checkbox" class="styled">
+											Law Enforcement
+											<span class="text-muted text-size-small">&nbsp;(40)</span>
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel-footer no-padding">
+								<a href="#" class="btn btn-default btn-block no-border">All industries</a>
+							</div>
+						</form>
+					</div>
+					<!-- /industry -->
 
 
-         <td><h2><a href="/offert/{{ offert.id }}">&nbsp;	&nbsp;	&nbsp;	&nbsp;{{ offert.salary }}</a></h2></td>
 
-    </tr>
 
-    {% endfor %}
-    </table>
-</div>
-</br></br></br></br>
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Cards layout -->
+				<ul class="media-list content-group">
+
+                    {% for offer in offers_list %}
+					<li class="media panel panel-body stack-media-on-mobile">
+						<div class="media-left">
+							<a href="#">
+								<img src="assets/images/placeholder.jpg" class="img-rounded img-lg" alt="">
+							</a>
+						</div>
+
+						<div class="media-body">
+							<h6 class="media-heading text-semibold">
+								<a href="#">{{ offer.title }}</a>
+							</h6>
+
+							<ul class="list-inline list-inline-separate text-muted mb-10">
+								<li><a href="#" class="text-muted">{{ offer.company_name }}</a></li>
+								<li>{{ offer.location }}</li>
+							</ul>
+
+							Contented get distrusts certainty nay are frankness concealed ham. On unaffected resolution on considered of. No thought me husband or colonel forming effects. End sitting shewing who saw besides son musical adapted. Contrasted interested eat alteration pianoforte sympathize was.
+						</div>
+
+						<div class="media-right text-nowrap">
+							<span class="text-muted">3 days ago</span>
+						</div>
+					</li>
+                    {% endfor %}
+
+				</ul>
+				<!-- /cards layout -->
+
+
+				<!-- Pagination -->
+				<div class="text-center content-group-lg pt-20">
+					<ul class="pagination">
+						<li class="disabled"><a href="#"><i class="icon-arrow-small-left"></i></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#"><i class="icon-arrow-small-right"></i></a></li>
+					</ul>
+				</div>
+				<!-- /pagination -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+
 {% endblock %}

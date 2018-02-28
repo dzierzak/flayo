@@ -33,7 +33,7 @@
 		<!-- Main navbar -->
 		<div class="navbar navbar-inverse navbar-transparent">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html"><img src="{% static 'bootstrap/images/logo_light.png' %}" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'bootstrap/images/logo_light.png' %}" alt=""></a>
 
 				<ul class="nav navbar-nav pull-right visible-xs-block">
 					<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-grid3"></i></a></li>
@@ -42,12 +42,6 @@
 			</div>
 
 			<div class="navbar-collapse collapse" id="navbar-mobile">
-				<p class="navbar-text"><span class="label bg-success-400">Premium</span></p>
-
-				<ul class="nav navbar-nav">
-					<li><a href="#">Upgrade</a></li>
-				</ul>
-
 				<div class="navbar-right">
 					<ul class="nav navbar-nav">
 
@@ -65,11 +59,13 @@
 								<li><a href="#"><span class="badge bg-blue pull-right">26</span> <i class="icon-comment-discussion"></i> Messages</a></li>
 								<li class="divider"></li>
 								<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-								<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+								<li><a href="/logout"><i class="icon-switch2"></i> Logout</a></li>
 							</ul>
 						</li>
                         {% else %}
-                        					<li><a href="#">Register</a></li>
+                        					<li><a href="/signupu">Sign up</a></li>
+                                            <li><a href="/login">Log in</a></li>
+
                         {% endif %}
 
 					</ul>
