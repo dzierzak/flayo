@@ -31,7 +31,7 @@ urlpatterns = [
          UserRegisterView.as_view(), name="signupu-view"),
     path('signupc/',
          CompanyRegisterView.as_view(), name="signupc-view"),
-    path('offers_list/',
+    path('offers-list/',
          OffersListView.as_view(), name="offers-list-view"),
     path('logout/',
          logout_view, name="logout-view"),

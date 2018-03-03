@@ -1,4 +1,6 @@
 {% load static %}
+{% load user_has_group %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,8 +46,12 @@
 			<div class="navbar-collapse collapse" id="navbar-mobile">
 				<div class="navbar-right">
 					<ul class="nav navbar-nav">
-
-                        <li><a href="/add-offer">Sign up User</a></li>
+                        {% if request.user|user_has_group:"company" %}
+                        <li><a href="/offers-list">Browse offers</a></li>
+                        <li><a href="/add-offer">Post a job</a></li>
+                        {% elif request.user|user_has_group:"user" %}
+                        <li><a href="/offers-list">Browse offers</a></li>
+                        {% endif %}
                         {% if user.is_authenticated %}
 						<li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-toggle="dropdown">
