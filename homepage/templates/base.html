@@ -45,6 +45,7 @@
 				<div class="navbar-right">
 					<ul class="nav navbar-nav">
 
+                        <li><a href="/add-offer">Sign up User</a></li>
                         {% if user.is_authenticated %}
 						<li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-toggle="dropdown">
@@ -63,7 +64,8 @@
 							</ul>
 						</li>
                         {% else %}
-                        					<li><a href="/signupu">Sign up</a></li>
+                        					<li><a href="/signupu">Sign up User</a></li>
+                                            <li><a href="/signupc">Sign up Company</a></li>
                                             <li><a href="/login">Log in</a></li>
 
                         {% endif %}
