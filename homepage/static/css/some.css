@@ -1,0 +1,105 @@
+
+
+
+
+
+/* Hero
+----------------------------------------------------------------------------- */
+.hero-section { font-size: 18px; }
+
+/* White
+----------------------------------------------------------------------------- */
+.white-section { background-color: #ffffff; }
+
+
+/* Wrapper
+----------------------------------------------------------------------------- */
+.white-section {
+    padding: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* Padding
+============================================================================= */
+/* Large Padding
+----------------------------------------------------------------------------- */
+.section-lg-padding > .section-container { padding: 160px 0 130px !important; }
+
+
+/* Container
+----------------------------------------------------------------------------- */
+.section-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding: 100px 0 70px;
+}
+
+
+
+
+.background-image-block img {
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+.background-image-block img.mobile-image { display: none; }
+
+
+.hero-section .title-block-container.text-center {
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
+
+.title-block-container.text-center { margin-bottom: 30px; }
+
+
+.title-block-container {
+    padding: 0;
+    width: 100%;
+    z-index: 15;
+    display: block;
+    font-size: 18px;
+    position: relative;
+    margin: 0 auto 15px;
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+.white-content .form-group label {
+    color: #ffffff;
+}
+
+.form-block-container.text-center { padding-top: 0; }
+
+.form-block-container {
+    width: 100%;
+    z-index: 20;
+    display: block;
+    margin: 0 auto;
+    padding-top: 9px;
+    position: relative;
+}
