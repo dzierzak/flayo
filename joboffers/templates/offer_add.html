@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 </br></br></br></br>
         <div align="center">
-    <form action="" method="POST"> {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Add job" />
-    </form>
+    {% crispy form %}
 
             </div>
 </br></br></br></br>
