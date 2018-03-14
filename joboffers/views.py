@@ -20,10 +20,15 @@ class OfferAddView(LoginRequiredMixin, CreateView):
         return redirect('/')
 
 
-# BROWSE OFFERTS VIEW
+# BROWSE OFFERS VIEW
 class OffersListView(View):
     def get(self, request):
         return render(request, 'offers_list.html', {
 
             'offers_list': Offer.objects.all().order_by('-id')
 })
+
+# OFFERS SEARCH VIEW
+
+class OffersSearchView(FormView):
+    template_name = 'search_job_form.html'
