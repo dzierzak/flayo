@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'Flayo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'flayoproject',
+        'NAME': 'flayodb',
         'USER': 'dzierzak',
         'PASSWORD': 'somepsw123',
         'HOST': 'localhost',
