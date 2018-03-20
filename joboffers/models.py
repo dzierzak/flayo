@@ -20,18 +20,42 @@ class Certificate(models.Model):
 
 
 class Offer(models.Model):
+    # Countries
+    POLAND = 'Poland'
+    UK = 'United Kingdom'
+    GERMANY = 'Germany'
+
+    COUNTRIES_CHOICES = (
+        (POLAND, _('Poland')),
+        (UK, _('United Kingdom')),
+        (GERMANY, _('Germany'))
+    )
+
+    # Employment statuses
+    CONTRACT_WITH_NO_PERIOD = "CONTRACT_WITH_NO_PERIOD"
+    CONTRACT_WITH_PERIOD = "Employment contract for a specified period/fixed term"
+    B2B = "B2B agreement"
+    CONTRACT_FOR_SPECIFIC = "Project delivery contract"
+
+    EMPLOYMENT_STATUSES_CHOICES = (
+        (CONTRACT_WITH_NO_PERIOD, _('Employment contract for an unspecified period')),
+        (CONTRACT_WITH_PERIOD, _('Employment contract for a specified period/fixed term')),
+        (B2B, _('B2B agreement')),
+        (CONTRACT_FOR_SPECIFIC, _('Project delivery contract'))
+    )
+
     # basic informations
     position = models.CharField(max_length=64)
     # location
     city = models.ForeignKey(City, on_delete=models.PROTECT)
-    country = models.CharField(max_length=64)
+    country = models.CharField(max_length=64, choices=COUNTRIES_CHOICES, default=POLAND)
     # offer description
     description = models.CharField(max_length=9000)
     # salaries info
     salary_from = models.IntegerField()
     salary_to = models.IntegerField()
     wage_per_hour = models.IntegerField()
-    employment_status = models.CharField(max_length=64)
+    employment_status = models.CharField(max_length=64, choices=COUNTRIES_CHOICES, default=POLAND)
     working_hours = models.CharField(max_length=64)
     # requirements
     experience = models.IntegerField()

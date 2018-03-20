@@ -33,11 +33,11 @@ class OfferAddForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.layout = Layout(
             Fieldset('Basic info',
-                     Field('title', placeholder='Offert title',
+                     Field('position', placeholder='Offert title',
                            css_class="some-class"),
-                     Field('salary', placeholder='Salary',
+                     Field('city', placeholder='Salary',
                            css_class="some-class"),
-                     Field('location', placeholder='place of work',
+                     Field('country', placeholder='place of work',
                            css_class="some-class"),
                      ),
             TabHolder(Tab('Description', 'description'),
