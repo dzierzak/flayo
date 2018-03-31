@@ -8,53 +8,21 @@ from django.contrib.auth.models import User
 
 #    LOGIN
 
-
 class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
-        super(OfferAddForm, self).__init__(*args, **kwargs)
+        super(UserLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_id = 'id-personal-data-form'
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit', css_class='btn-success'))
+        self.helper.add_input(Submit('submit', 'Login', css_class='btn-success'))
         self.helper.form_class = 'form-horizontal'
         self.helper.layout = Layout(
-            Fieldset('Basic info',
-                      Field('position', placeholder='Offert title',
-                            css_class="some-class"),
-                      Field('city', placeholder='Salary',
-                            css_class="some-class"),
-                      Field('country', placeholder='place of work',
-                            css_class="some-class")),
-                      Tab('Description',
-                          'description',
-                          ),
-                      Tab('Salary info',
-                          'salary_from',
-                          'salary_to',
-                          'employment_status',
-                          'working_hours'
-                          ),
-                      Tab('Requirements',
-                          'requirements',
-                          'experience',
-                          'education_level',
-                          'certificates'
-                          ),
-                      Tab('Company description',
-                          'company_name',
-                          'company_description',
-                          'benefits_description',
-                          ),
-                      Tab('Additional info',
-                          'required_docs',
-                          'clause',
-                          'ref_number',
-                          ),
-                     Submit('submit_button',
-                        _('Save')),
+            Fieldset('Log in',
+                      Field('username', css_class="some-class"),
+                      Field('password', css_class="some-class")),
         )
 
 
@@ -79,6 +47,22 @@ class UserRegisterForm(forms.ModelForm):
             'password_confirm'
 
                   ]
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-personal-data-form'
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Register', css_class='btn-success'))
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+            Fieldset('Log in',
+                      Field('username', css_class="some-class"),
+                      Field('email', css_class="some-class"),
+                      Field('email_confirm', css_class="some-class"),
+                      Field('password', css_class="some-class"),
+                      Field('password_confirm', css_class="some-class")),
+        )
 
     def clean(self):
         print(self.cleaned_data)
