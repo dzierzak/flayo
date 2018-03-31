@@ -44,6 +44,17 @@ class Offer(models.Model):
         (CONTRACT_FOR_SPECIFIC, _('Project delivery contract'))
     )
 
+    # Education level
+    PRIMARY = 'Primary education'
+    SECONDARY = 'Secondary education'
+    HIGHER_EDUCATION = 'Higher education'
+
+    EDUCATION_LEVEL_CHOICES = (
+        (PRIMARY, _('Primary education')),
+        (SECONDARY, _('Secondary education')),
+        (HIGHER_EDUCATION, _('Higher education'))
+    )
+
     # basic informations
     position = models.CharField(max_length=64)
     # location
@@ -55,13 +66,14 @@ class Offer(models.Model):
     salary_from = models.IntegerField()
     salary_to = models.IntegerField()
     wage_per_hour = models.IntegerField()
-    employment_status = models.CharField(max_length=64, choices=COUNTRIES_CHOICES, default=POLAND)
+    employment_status = models.CharField(max_length=64, choices=EMPLOYMENT_STATUSES_CHOICES,
+                                         default=CONTRACT_WITH_NO_PERIOD)
     working_hours = models.CharField(max_length=64)
     # requirements
     experience = models.IntegerField()
     requirements = models.CharField(max_length=9000)
-    education_level = models.CharField(max_length=64)
-    certificates = models.ForeignKey(Certificate, on_delete=models.PROTECT)
+    education_level = models.CharField(max_length=64, choices=EDUCATION_LEVEL_CHOICES)
+    certificates = models.ForeignKey(Certificate, on_delete=models.PROTECT, blank=True, null=True)
     # benefits
     benefits_description = models.CharField(max_length=9000)
     # company
@@ -73,7 +85,7 @@ class Offer(models.Model):
     clause = models.CharField(max_length=512)
     ref_number = models.CharField(max_length=64)
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(
         _("Created at"),
         auto_now_add=True,
