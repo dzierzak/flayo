@@ -15,7 +15,7 @@ class UserLoginForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'id-personal-data-form'
+        self.helper.form_id = 'id-user-login-form'
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Login', css_class='btn-success'))
         self.helper.form_class = 'form-horizontal'
@@ -51,7 +51,7 @@ class UserRegisterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(UserRegisterForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'id-personal-data-form'
+        self.helper.form_id = 'id-user-register-form'
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Register', css_class='btn-success'))
         self.helper.form_class = 'form-horizontal'
@@ -93,7 +93,7 @@ class CompanyRegisterForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(CompanyRegisterForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'id-personal-data-form'
+        self.helper.form_id = 'id-company-register-form'
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Register', css_class='btn-success'))
         self.helper.form_class = 'form-horizontal'

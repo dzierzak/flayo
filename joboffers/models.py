@@ -58,32 +58,33 @@ class Offer(models.Model):
     # basic informations
     position = models.CharField(max_length=64)
     # location
-    city = models.ForeignKey(City, on_delete=models.PROTECT)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
     country = models.CharField(max_length=64, choices=COUNTRIES_CHOICES, default=POLAND)
     # offer description
-    description = models.CharField(max_length=9000)
+    description = models.CharField(max_length=9000, null=True)
     # salaries info
-    salary_from = models.IntegerField()
-    salary_to = models.IntegerField()
-    wage_per_hour = models.IntegerField()
+    salary_from = models.IntegerField(null=True, blank=True)
+    salary_to = models.IntegerField(null=True, blank=True)
+    wage_per_hour_from = models.IntegerField(null=True, blank=True)
+    wage_per_hour_to = models.IntegerField(null=True, blank=True)
     employment_status = models.CharField(max_length=64, choices=EMPLOYMENT_STATUSES_CHOICES,
-                                         default=CONTRACT_WITH_NO_PERIOD)
-    working_hours = models.CharField(max_length=64)
+                                         default=CONTRACT_WITH_NO_PERIOD, null=True, blank=True)
+    # working_hours = models.CharField(max_length=64, null=True, blank=True)
     # requirements
-    experience = models.IntegerField()
-    requirements = models.CharField(max_length=9000)
-    education_level = models.CharField(max_length=64, choices=EDUCATION_LEVEL_CHOICES)
+    experience = models.IntegerField(null=True, blank=True)
+    requirements = models.CharField(max_length=9000, null=True, blank=True)
+    education_level = models.CharField(max_length=64, choices=EDUCATION_LEVEL_CHOICES, null=True, blank=True)
     certificates = models.ForeignKey(Certificate, on_delete=models.PROTECT, blank=True, null=True)
     # benefits
-    benefits_description = models.CharField(max_length=9000)
+    benefits_description = models.CharField(max_length=9000, null=True, blank=True)
     # company
-    company_description = models.CharField(max_length=9000)
-    company_name = models.CharField(max_length=128)
+    company_description = models.CharField(max_length=9000, null=True, blank=True)
+    company_name = models.CharField(max_length=128, null=True, blank=True)
 
     # additional informations
-    required_docs = models.CharField(max_length=64)
-    clause = models.CharField(max_length=512)
-    ref_number = models.CharField(max_length=64)
+    required_docs = models.CharField(max_length=64, null=True, blank=True)
+    clause = models.CharField(max_length=512, null=True, blank=True)
+    ref_number = models.CharField(max_length=64, null=True, blank=True)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(
@@ -95,3 +96,17 @@ class Offer(models.Model):
     def __str__(self):
         return self.position
 
+#
+# class Category(models.Model):
+#     name = models.CharField(max_length=64, blank=False)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
+# class Subcategory(models.Model):
+#     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=64, blank=False)
+#
+#     def __str__(self):
+#         return self.name
