@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
 from homepage.views import HomepageView, UserLoginView, UserRegisterView, CompanyRegisterView, logout_view
-from joboffers.views import OfferAddView, OffersListView
+from joboffers.views import OfferAddView, OffersListView, OfferDetailsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,8 @@ urlpatterns = [
          HomepageView.as_view(), name="homepage-view"),
     path('add-offer/',
          OfferAddView.as_view(), name="offer-add-view"),
+    re_path(r'^offer/(?P<pk>(\d)+)',
+         OfferDetailsView.as_view(), name="offert-details"),
     path('login/',
          UserLoginView.as_view(), name="login-view"),
     path('signupu/',

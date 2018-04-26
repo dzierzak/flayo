@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.shortcuts import get_object_or_404
+
 from django.views import View
 from .models import Offer
 from .forms import OfferAddForm
@@ -28,7 +31,23 @@ class OffersListView(View):
             'offers_list': Offer.objects.all().order_by('-id')
 })
 
-# OFFERS SEARCH VIEW
 
+# OFFER DETAIL VIEW
+class OfferDetailsView(DetailView):
+    model = Offer
+    template = 'offer_details.html'
+
+    def get_object(self):
+        pk = self.kwargs['pk']
+        offer = get_object_or_404(Offer, pk=pk)
+        return offer
+
+    def get_context_data(self, **kwargs):
+        context = super(OfferDetailsView, self).get_context_data(**kwargs)
+        context['now'] = self.get_object()
+        return context
+
+
+# OFFERS SEARCH VIEW
 class OffersSearchView(FormView):
     template_name = 'search_job_form.html'
