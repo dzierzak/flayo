@@ -4,6 +4,7 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import get_object_or_404
 
+from django.utils import timezone
 from django.views import View
 from .models import Offer
 from .forms import OfferAddForm
@@ -34,19 +35,28 @@ class OffersListView(View):
 
 # OFFER DETAIL VIEW
 class OfferDetailsView(DetailView):
-    model = Offer
-    template = 'offer_details.html'
 
-    def get_object(self):
-        pk = self.kwargs['pk']
-        offer = get_object_or_404(Offer, pk=pk)
-        return offer
+    model = Offer
 
     def get_context_data(self, **kwargs):
-        context = super(OfferDetailsView, self).get_context_data(**kwargs)
-        context['now'] = self.get_object()
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
         return context
 
+    def render_to_response(self, context, **response_kwargs):
+        """
+        Return a response, using the `response_class` for this view, with a
+        template rendered with the given context.
+        Pass response_kwargs to the constructor of the response class.
+        """
+        response_kwargs.setdefault('content_type', self.content_type)
+        return self.response_class(
+            request=self.request,
+            template='offer_details.html',
+            context=context,
+            using=self.template_engine,
+            **response_kwargs
+        )
 
 # OFFERS SEARCH VIEW
 class OffersSearchView(FormView):

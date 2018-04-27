@@ -25,8 +25,8 @@ urlpatterns = [
          HomepageView.as_view(), name="homepage-view"),
     path('add-offer/',
          OfferAddView.as_view(), name="offer-add-view"),
-    re_path(r'^offer/(?P<pk>(\d)+)',
-         OfferDetailsView.as_view(), name="offert-details"),
+    path('offer/<int:pk>/', OfferDetailsView.as_view(), name='offer_details'),
+
     path('login/',
          UserLoginView.as_view(), name="login-view"),
     path('signupu/',
