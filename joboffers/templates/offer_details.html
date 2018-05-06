@@ -33,43 +33,17 @@
 							</div>
 
 							<div class="panel-body">
-								<h6 class="text-semibold">Overview</h6>
-								<p class="content-group">Then sluggishly this camel learned woodchuck far stretched unspeakable notwithstanding the walked owing stung mellifluously glumly rooster more examined one that combed until a less less witless pouted up voluble timorously glared elaborate giraffe steady while grinned and got one beaver to walked. Connected picked rashly ocelot flirted while wherever unwound much more one inside emotionally well much woolly amidst upon far burned ouch sadistically became.</p>
+								<h6 class="text-semibold">Opis oferty</h6>
+								<p class="content-group">{{ object.description }}</p>
 
-								<h6 class="text-semibold">What we need</h6>
-								<p class="content-group-lg">Some cow goose out and sweeping wow the skillfully goodness one crazily far some jeez darn well so peevish pending nudged categorically in between about much alas handsome intolerable devotedly helpfully smiled momentously next much this this next sweepingly far. Together prim and limpet much extravagantly quail longing a ouch that walking a jeepers flamingo more.</p>
+								<h6 class="text-semibold">Wymagania</h6>
+								<p class="content-group-lg">{{ object.requirements }}</p>
 
-								<div class="row container-fluid">
-									<div class="col-sm-6">
-										<div class="content-group">
-											<dl>
-				                                <dt class="text-size-small text-primary text-uppercase">1. Salamander much that on much</dt>
-				                                <dd>Like partook magic this enthusiastic tasteful far crud otter this the ferret honey iguana.</dd>
+                                <h6 class="text-semibold">Benefity</h6>
+								<p class="content-group-lg">{{ object.benefits_description }}</p>
 
-				                                <dt class="text-size-small text-primary text-uppercase">2. Well far some raccoon</dt>
-				                                <dd>Python laudably euphemistically since this copious much human this briefly hello ouch less one diligent however impotently made gave a slick up much.</dd>
-
-				                                <dt class="text-size-small text-primary text-uppercase">3. Goldfish rapidly that far</dt>
-				                                <dd>Well far some raccoon knew goose and crud behind salmon amenable oh the poignant sufficiently yikes a naked showed far reindeer imminently.</dd>
-				                            </dl>
-			                            </div>
-									</div>
-
-									<div class="col-sm-6">
-										<div class="content-group">
-											<dl>
-				                                <dt class="text-size-small text-primary text-uppercase">1. Misunderstood cuffed more depending</dt>
-				                                <dd>And earthworm dear arose bald agilely sad so below cowered within ceremonially therefore via much this symbolically and newt capably.</dd>
-
-				                                <dt class="text-size-small text-primary text-uppercase">2. Voluble much saddled mechanic</dt>
-				                                <dd>Much took between less goodness jay mallard kneeled gnashed this up strong cooperative.</dd>
-
-				                                <dt class="text-size-small text-primary text-uppercase">3. Before some one more</dt>
-				                                <dd>Pending some contrary rabbit up that the more conditionally ouch confidently far so was darn logic thus dove the juicily because that placed otter.</dd>
-				                            </dl>
-			                            </div>
-									</div>
-			                    </div>
+                                <h6 class="text-semibold">O firmie</h6>
+								<p class="content-group-lg">{{ object.company_description }}</p>
 
 
 
@@ -108,7 +82,7 @@
 						<!-- Task details -->
 						<div class="panel panel-flat">
 							<div class="panel-heading">
-								<h6 class="panel-title"><i class="icon-files-empty position-left"></i> Task details</h6>
+								<h6 class="panel-title"><i class="icon-files-empty position-left"></i> Offer details</h6>
 								<div class="heading-elements">
 									<ul class="icons-list">
 				                		<li><a data-action="collapse"></a></li>
@@ -120,35 +94,17 @@
 
 							<table class="table table-borderless table-xs content-group-sm">
 								<tbody>
+                                    <tr>
+										<td><i class="icon-history position-left"></i>Company:</td>
+										<td class="text-right">{{ object.company_name }}</td>
+									</tr>
 									<tr>
-										<td><i class="icon-briefcase position-left"></i> Lokalizacja:</td>
+										<td><i class="icon-briefcase position-left"></i> Miejsce pracy:</td>
 										<td class="text-right"><span class="pull-right"><a href="#">{{ object.city }}, {{ object.country }}</a></span></td>
 									</tr>
 									<tr>
 										<td><i class="icon-alarm-add position-left"></i> Status zatrudnienia:</td>
 										<td class="text-right">{{ object.employment_status }}</td>
-									</tr>
-									<tr>
-										<td><i class="icon-alarm-check position-left"></i> Created:</td>
-										<td class="text-right">25 Feb, 2015</td>
-									</tr>
-									<tr>
-										<td><i class="icon-circles2 position-left"></i> Priority:</td>
-										<td class="text-right">
-											<div class="btn-group">
-												<a href="#" class="label label-danger dropdown-toggle" data-toggle="dropdown">Highest <span class="caret"></span></a>
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="#"><span class="status-mark position-left bg-danger"></span> Highest priority</a></li>
-													<li><a href="#"><span class="status-mark position-left bg-info"></span> High priority</a></li>
-													<li><a href="#"><span class="status-mark position-left bg-primary"></span> Normal priority</a></li>
-													<li><a href="#"><span class="status-mark position-left bg-success"></span> Low priority</a></li>
-												</ul>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td><i class="icon-history position-left"></i> Revisions:</td>
-										<td class="text-right">29</td>
 									</tr>
 									<tr>
 										<td><i class="icon-file-plus position-left"></i> Added by:</td>
@@ -161,27 +117,6 @@
 								</tbody>
 							</table>
 
-					    	<div class="panel-footer panel-footer-condensed">
-								<div class="heading-elements">
-									<ul class="list-inline list-inline-condensed heading-text">
-										<li><a href="#" class="text-default"><i class="icon-pencil7"></i></a></li>
-										<li><a href="#" class="text-default"><i class="icon-bin"></i></a></li>
-									</ul>
-
-									<ul class="list-inline list-inline-condensed heading-text pull-right">
-										<li><a href="#" class="text-default"><i class="icon-statistics"></i></a></li>
-										<li class="dropdown">
-											<a href="#" class="text-default dropdown-toggle" data-toggle="dropdown"><i class="icon-gear"></i><span class="caret"></span></a>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-alarm-add"></i> Check in</a></li>
-												<li><a href="#"><i class="icon-attachment"></i> Attach screenshot</a></li>
-												<li><a href="#"><i class="icon-user-plus"></i> Assign users</a></li>
-												<li><a href="#"><i class="icon-warning2"></i> Report</a></li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-							</div>
 						</div>
 						<!-- /task details -->
 

@@ -32,7 +32,7 @@ class Offer(models.Model):
     )
 
     # Employment statuses
-    CONTRACT_WITH_NO_PERIOD = "CONTRACT_WITH_NO_PERIOD"
+    CONTRACT_WITH_NO_PERIOD = "CONTRACT WITH NO PERIOD"
     CONTRACT_WITH_PERIOD = "Employment contract for a specified period/fixed term"
     B2B = "B2B agreement"
     CONTRACT_FOR_SPECIFIC = "Project delivery contract"
@@ -71,10 +71,7 @@ class Offer(models.Model):
                                          default=CONTRACT_WITH_NO_PERIOD, null=True, blank=True)
     # working_hours = models.CharField(max_length=64, null=True, blank=True)
     # requirements
-    experience = models.IntegerField(null=True, blank=True)
     requirements = models.CharField(max_length=9000, null=True, blank=True)
-    education_level = models.CharField(max_length=64, choices=EDUCATION_LEVEL_CHOICES, null=True, blank=True)
-    certificates = models.ForeignKey(Certificate, on_delete=models.PROTECT, blank=True, null=True)
     # benefits
     benefits_description = models.CharField(max_length=9000, null=True, blank=True)
     # company
