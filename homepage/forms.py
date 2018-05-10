@@ -12,19 +12,6 @@ class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
-    def __init__(self, *args, **kwargs):
-        super(UserLoginForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_id = 'id-user-login-form'
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Login', css_class='btn-success'))
-        self.helper.form_class = 'form-horizontal'
-        self.helper.layout = Layout(
-            Fieldset('Log in',
-                      Field('username', css_class="some-class"),
-                      Field('password', css_class="some-class")),
-        )
-
 
 #    REGISTER
 
