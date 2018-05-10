@@ -82,6 +82,7 @@ class Offer(models.Model):
     required_docs = models.CharField(max_length=64, null=True, blank=True)
     clause = models.CharField(max_length=512, null=True, blank=True)
     ref_number = models.CharField(max_length=64, null=True, blank=True)
+    contact_email = models.CharField(max_length=64, null=True, blank=True)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(

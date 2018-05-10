@@ -1,0 +1,27 @@
+<div id="div_id_{{ field.name }}" class="form-group row{% if field.errors %} has-danger{% endif %}">
+  <div class="controls row col-lg-{% if input_size %}{{ input_size }}{% else %}12{% endif %}">
+    <div class="col-sm-12">
+      <select class="select form-control" id="{% if field_id %}{{ field_id }}{% else %}id_{{ field.name }}{% endif %}" name="{% if field_name %}{{ field_name }}{% else %}{{ field.name }}{% endif %}" {% if onchange %}onChange="updateForm()"{% endif %}>
+        {% if field.field.choices %}
+          {% for choice in field.field.choices %}
+            <option value="{{ choice.0 }}" {% if choice.0|slugify == field.value|slugify %}selected{% endif %}>{{ choice.1 }}</option>
+          {% endfor %}
+        {% else %}
+          {% for choice in field.field.widget.choices %}
+            <option value="{{ choice.0 }}" {% if choice.0|slugify == field.value|slugify %}selected{% endif %}>{{ choice.1 }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+
+      {% if field.help_text %}<p id="hint_id_{{ field.name }}" class="form-text">{{ field.help_text }}</p>{% endif %}
+      {% for error in field.errors %}
+        <p id="error_{{forloop.counter}}_id_{{ field.name }}" class="form-text has-danger"><strong>{{ error }}</strong></p>
+      {% endfor %}
+    </div>
+    {% if tooltip %}
+      <div class="col-sm-1 no-padding-left vertical-align">
+        <span class="fa fa-info-circle fa-2x blue tooltip-icon" aria-hidden="true" data-toggle='tooltip' data-placement="right" data-title='' title='{{ tooltip }}' class='badge badge-secondary pull-right'></span>
+      </div>
+    {% endif %}
+  </div>
+</div>
