@@ -1,9 +1,35 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
+<!-- jQuery !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <form action="" method="POST"> {% csrf_token %}
+        <div class="ui-widget">
+       <input type="text" name="position" required id="id_position" />
+        </div>
+        <input type="submit" value="Search" />
+    </form>
 
 
+    <script>
+  $(document).ready(function(){
+        var location_input=$('input[id="id_position"]');
+        location_input.autocomplete({
+          source: "/api/get_places/",
+          minLength: 2
+        });
+      } );
 
-H O M E P A G E
-
+    //   keeps same width as box
+      jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+          var ul = this.menu.element;
+          ul.outerWidth(this.element.outerWidth());
+        }
+</script>
 {% endblock %}
+

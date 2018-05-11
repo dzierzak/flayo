@@ -8,14 +8,12 @@ from django.contrib.auth import (authenticate,
                                  logout,
                                  )
 from django.contrib.auth.models import User, Permission, Group
-from .forms import UserLoginForm, UserRegisterForm, CompanyRegisterForm
+import json
+from .forms import UserLoginForm, UserRegisterForm, CompanyRegisterForm, OffersSearchForm
 from .models import Company
+from joboffers.models import Offer
+from django.http import HttpResponse
 
-
-class HomepageView(View):
-
-    def get(self, request):
-        return render(request, 'homepage.html')
 
 
 def logout_view(request):
@@ -104,5 +102,30 @@ class CompanyRegisterView(FormView):
         return super(CompanyRegisterView, self).form_invalid(form)
 
 
+class SearchJobView(FormView):
+    template_name = 'homepage.html'
+    form_class = OffersSearchForm
 
+    def form_valid(self, form):
+        position = form.cleaned_data['position']
+        offerts_list = Offer.objects.filter(position__icontains=position)
 
+        return render(self.request, 'offers_list.html', {
+
+            'offers_list': offerts_list
+        })
+
+def get_places(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        places = Offer.objects.filter(position__icontains=q)
+        results = []
+        for pl in places:
+            place_json = {}
+            place_json = pl.position
+            results.append(place_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)

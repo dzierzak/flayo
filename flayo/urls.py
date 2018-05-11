@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
-from homepage.views import HomepageView, UserLoginView, UserRegisterView, CompanyRegisterView, logout_view
+from homepage.views import UserLoginView, UserRegisterView, CompanyRegisterView, logout_view, SearchJobView, get_places
 from joboffers.views import OfferAddView, OffersListView, OfferDetailsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',
-         HomepageView.as_view(), name="homepage-view"),
+         SearchJobView.as_view(), name="homepage-view"),
     path('add-offer/',
          OfferAddView.as_view(), name="offer-add-view"),
     path('offer/<int:pk>/', OfferDetailsView.as_view(), name='offer_details'),
@@ -37,4 +37,6 @@ urlpatterns = [
          OffersListView.as_view(), name="offers-list-view"),
     path('logout/',
          logout_view, name="logout-view"),
+    re_path(r'^api/get_places/', get_places, name='get_places'),
+
 ]
