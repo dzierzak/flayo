@@ -1,55 +1,52 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% load static %}
-
 {% block content %}
+<!-- Page container -->
+<div class="page-container">
 
-	<!-- Page container -->
-	<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
 
-		<!-- Page content -->
-		<div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
 
-			<!-- Main content -->
-			<div class="content-wrapper">
+            <form action="" method="post" class="login-form">
+                <div class="panel panel-body">
+                    <div class="text-center">
+                        <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+                        <h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
+                    </div>
+                    {% csrf_token %}
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input type="text" class="form-control" placeholder="Username" name="username" id="id_username">
+                        <div class="form-control-feedback">
+                            <i class="icon-user text-muted"></i>
+                        </div>
+                    </div>
 
-                    <form action="" method="post" class="login-form">
-					<div class="panel panel-body">
-						<div class="text-center">
-							<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-							<h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
-						</div>
-                        {% csrf_token %}
-						<div class="form-group has-feedback has-feedback-left">
-							<input type="text" class="form-control" placeholder="Username" name="username" id="id_username">
-							<div class="form-control-feedback">
-								<i class="icon-user text-muted"></i>
-							</div>
-						</div>
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="id_password">
+                        <div class="form-control-feedback">
+                            <i class="icon-lock2 text-muted"></i>
+                        </div>
+                    </div>
 
-						<div class="form-group has-feedback has-feedback-left">
-							<input type="password" class="form-control" placeholder="Password" name="password" id="id_password">
-							<div class="form-control-feedback">
-								<i class="icon-lock2 text-muted"></i>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <button type="submit" class="btn bg-pink-400 btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
+                    </div>
 
-						<div class="form-group">
-							<button type="submit" class="btn bg-pink-400 btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
-						</div>
+                    <div class="text-center">
+                        <a href="login_password_recover.html">Forgot password?</a>
+                    </div>
+                </div>
+            </form>
 
-						<div class="text-center">
-							<a href="login_password_recover.html">Forgot password?</a>
-						</div>
-					</div>
-				</form>
+        </div>
+        <!-- /main content -->
 
-			</div>
-			<!-- /main content -->
+    </div>
+    <!-- /page content -->
 
-		</div>
-		<!-- /page content -->
-
-	</div>
+</div>
 
 {% endblock %}

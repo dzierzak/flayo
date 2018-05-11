@@ -1,193 +1,176 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<script type="text/javascript" src="{% static 'bootstrap/js/pages/wizard_stepy.js' %}"></script>
-    <script type="text/javascript" src="{% static 'bootstrap/js/plugins/forms/wizards/stepy.min.js' %}"></script>
 
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="{% static 'bootstrap/js/plugins/sliders/ion_rangeslider.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'bootstrap/js/plugins/ui/moment/moment_locales.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/pages/wizard_stepy.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/plugins/forms/wizards/stepy.min.js' %}"></script>
 
-	<script type="text/javascript" src="{% static 'bootstrap/js/pages/extra_sliders_ion.js' %}"></script>
-	<!-- /theme JS files -->
+<!-- Theme JS files -->
+<script type="text/javascript" src="{% static 'bootstrap/js/plugins/sliders/ion_rangeslider.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/plugins/ui/moment/moment_locales.min.js' %}"></script>
 
+<script type="text/javascript" src="{% static 'bootstrap/js/pages/extra_sliders_ion.js' %}"></script>
+<!-- /theme JS files -->
 
+<!-- Page container -->
+<div class="page-container">
 
-	<!-- Page container -->
-	<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
 
-		<!-- Page content -->
-		<div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
 
-			<!-- Main content -->
-			<div class="content-wrapper">
+            <!-- Basic setup -->
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Basic information</h6>
+                </div>
+                <form action="" method="post" class="stepy-basic">{% csrf_token %}
+                    <fieldset title="1" style="padding-top: 50px">
+                        <legend class="text-semibold">Basic information</legend>
 
-				<!-- Basic setup -->
-	            <div class="panel panel-white">
-					<div class="panel-heading">
-						<h6 class="panel-title">Basic information</h6>
-					</div>
-                        <form action="" method="post" class="stepy-basic">{% csrf_token %}
-						<fieldset title="1" style="padding-top: 50px">
-							<legend class="text-semibold">Basic information</legend>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Position title:</label>
+                                    <input type="text" name="position" id="id_position" class="form-control" placeholder="eg. Python Web Developer">
+                                </div>
+                            </div>
 
-							<div class="row">
-								<div class="col-md-6">
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <div class="form-group">
-										<label>Position title:</label>
-										<input type="text" name="position" id="id_position" class="form-control" placeholder="eg. Python Web Developer">
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-                                    <div class="form-group">
-										<label>Company name:</label>
-										<input type="text" name="company_name" id="id_company_name" class="form-control" placeholder="eg. Google Inc.">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group" style="padding-left: 10px">
-										<label>Select city:</label>
-                                        {% include 'partials/input_select_with_tooltip.html' with field=form.city %}
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Select country:</label>
-                                        {% include 'partials/input_select_with_tooltip.html' with field=form.country %}
-									</div>
-								</div>
-							</div>
-
-                            <div class="row">
-								<div class="col-md-6">
-                                    <div class="form-group" style="padding-left: 10px">
-										<label>Employment status:</label>
-										{% include 'partials/input_select_with_tooltip.html' with field=form.employment_status %}
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-                                    <div class="form-group">
-										<label>Contact email:</label>
-										<input type="text" name="contact_email" id="id_contact_email" class="form-control" placeholder="Contact email for candidates">
-									</div>
-								</div>
-							</div>
-
-
-
-						</fieldset>
-
-						<fieldset title="2" style="padding-top: 50px">
-							<legend class="text-semibold">Job details</legend>
-
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Description:</label>
-	                                    <textarea name="description" id="id_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
-	                                </div>
-								</div>
-
-							</div>
-
-                            <div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Requirements:</label>
-	                                    <textarea name="requirements" id="id_requirements" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
-	                                </div>
-								</div>
-
-							</div>
-
-
-
-						</fieldset>
-
-						<fieldset title="3" style="padding-top: 50px">
-							<legend class="text-semibold">Company information</legend>
-
-                            <div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Benefits description:</label>
-	                                    <textarea name="benefits_description" id="id_benefits_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
-	                                </div>
-								</div>
-
-							</div>
-
-                            <div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Company description:</label>
-	                                    <textarea name="company_description" id="id_company_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
-	                                </div>
-								</div>
-
-							</div>
-
-						</fieldset>
-
-						<fieldset title="4" style="padding-top: 50px">
-							<legend class="text-semibold">Additional info</legend>
-
-							<div class="row">
-								<div class="col-md-6">
-                                    <div class="form-group">
-										<label>Required documents:</label>
-										<input type="text" name="required_docs" id="id_required_docs" class="form-control" placeholder="eg. CV, motivation list">
-									</div>
-								</div>
-
-								<div class="col-md-6">
-                                    <div class="form-group">
-										<label>Reference number:</label>
-										<input type="text"  name="ref_number" maxlength="64" id="id_ref_number" class="form-control">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Additional info/Clause:</label>
-	                                    <textarea name="clause"  id="id_clause" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
+                                        <label>Company name:</label>
+                                        <input type="text" name="company_name" id="id_company_name" class="form-control" placeholder="eg. Google Inc.">
                                     </div>
-								</div>
-							</div>
-						</fieldset>
+                                </div>
+                            </div>
 
-						<button type="submit" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></button>
-					</form>
-	            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" style="padding-left: 10px">
+                                        <label>Select city:</label>
+                                        {% include 'partials/input_select_with_tooltip.html' with field=form.city %}
+                                    </div>
+                                </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Select country:</label>
+                                        {% include 'partials/input_select_with_tooltip.html' with field=form.country %}
+                                    </div>
+                                </div>
+                            </div>
 
-	            <!-- /basic setup -->
-</br></br></br></br>
-{% endblock %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" style="padding-left: 10px">
+                                        <label>Employment status:</label>
+                                        {% include 'partials/input_select_with_tooltip.html' with field=form.employment_status %}
+                                    </div>
+                                </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Contact email:</label>
+                                            <input type="text" name="contact_email" id="id_contact_email" class="form-control" placeholder="Contact email for candidates">
+                                        </div>
+                                    </div>
+                                </div>
 
-{% block extra_js %}
+                    </fieldset>
 
-<script type="text/javascript">
-$("#ex2").slider({});
+                    <fieldset title="2" style="padding-top: 50px">
+                        <legend class="text-semibold">Job details</legend>
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Description:</label>
+                                    <textarea name="description" id="id_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="wysihtml5 wysihtml5-min form-control"></textarea>
+                                </div>
+                            </div>
 
-</script>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Requirements:</label>
+                                    <textarea name="requirements" id="id_requirements" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
+                                </div>
+                            </div>
 
+                        </div>
 
+                    </fieldset>
+
+                    <fieldset title="3" style="padding-top: 50px">
+                        <legend class="text-semibold">Company information</legend>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Benefits description:</label>
+                                    <textarea name="benefits_description" id="id_benefits_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Company description:</label>
+                                    <textarea name="company_description" id="id_company_description" rows="4" cols="4" placeholder="Tasks and responsibilities" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset title="4" style="padding-top: 50px">
+                        <legend class="text-semibold">Additional info</legend>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Required documents:</label>
+                                    <input type="text" name="required_docs" id="id_required_docs" class="form-control" placeholder="eg. CV, motivation list">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Reference number:</label>
+                                    <input type="text" name="ref_number" maxlength="64" id="id_ref_number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Additional info/Clause:</label>
+                                    <textarea name="clause" id="id_clause" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></button>
+                </form>
+                </div>
+
+                <!-- /basic setup -->
+                </br>
+                </br>
+                </br>
+                </br>
 {% endblock %}
