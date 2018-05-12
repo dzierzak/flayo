@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
-from homepage.views import UserLoginView, UserRegisterView, CompanyRegisterView, logout_view, SearchJobView, get_places
+from homepage.views import UserLoginView, UserRegisterView, CompanyRegisterView, logout_view, SearchJobView
+from homepage.ajax import get_position, get_city
 from joboffers.views import OfferAddView, OffersListView, OfferDetailsView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +39,7 @@ urlpatterns = [
          OffersListView.as_view(), name="offers-list-view"),
     path('logout/',
          logout_view, name="logout-view"),
-    re_path(r'^api/get_places/', get_places, name='get_places'),
+    re_path(r'^api/get_position/', get_position, name='get_position'),
+    re_path(r'^api/get_city/', get_city, name='get_city'),
 
 ]

@@ -2,7 +2,7 @@ from django.http import HttpResponse
 import json
 from joboffers.models import Offer, City
 
-
+# return list of job offer's titles for jQuery Autocomplete function
 def get_position(request):
     if request.is_ajax():
         q = request.GET.get('term', '')
@@ -19,6 +19,7 @@ def get_position(request):
     return HttpResponse(data, mimetype)
 
 
+# return list of cities for jQuery Autocomplete function
 def get_city(request):
     if request.is_ajax():
         q = request.GET.get('term', '')

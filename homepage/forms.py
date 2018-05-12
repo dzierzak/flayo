@@ -4,6 +4,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.bootstrap import Field, InlineRadios, TabHolder, Tab
 from crispy_forms.layout import  Submit, Fieldset, Layout, Div
 from django.contrib.auth.models import User
+from joboffers.models import Offer
 
 
 #    LOGIN
@@ -110,3 +111,8 @@ class CompanyRegisterForm(forms.Form):
             raise forms.ValidationError("Passwords must match")
 
         return self.cleaned_data
+
+
+class OffersSearchForm(forms.Form):
+    position = forms.CharField(required=False)
+    city = forms.CharField(required=False)
