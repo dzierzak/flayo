@@ -12,7 +12,8 @@ import json
 from .forms import UserLoginForm, UserRegisterForm, CompanyRegisterForm, OffersSearchForm
 from .models import Company
 from joboffers.models import Offer
-from django.http import HttpResponse
+from django.db.models import Q
+
 
 
 
@@ -79,7 +80,6 @@ class CompanyRegisterView(FormView):
     template_name = 'company_register.html'
 
     def form_valid(self, form):
-
         try:
 
             username = form.cleaned_data['username']
@@ -108,24 +108,12 @@ class SearchJobView(FormView):
 
     def form_valid(self, form):
         position = form.cleaned_data['position']
-        offerts_list = Offer.objects.filter(position__icontains=position)
-
+        city = form.cleaned_data['city']
+        offers_list = Offer.objects.filter(city__city__icontains=city).filter(position__icontains=position)
         return render(self.request, 'offers_list.html', {
 
-            'offers_list': offerts_list
+            'offers_list': offers_list,
+            'given_position': position,
+            'given_city': city
         })
 
-def get_places(request):
-    if request.is_ajax():
-        q = request.GET.get('term', '')
-        places = Offer.objects.filter(position__icontains=q)
-        results = []
-        for pl in places:
-            place_json = {}
-            place_json = pl.position
-            results.append(place_json)
-        data = json.dumps(results)
-    else:
-        data = 'fail'
-    mimetype = 'application/json'
-    return HttpResponse(data, mimetype)
