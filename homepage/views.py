@@ -102,7 +102,7 @@ class CompanyRegisterView(FormView):
         return super(CompanyRegisterView, self).form_invalid(form)
 
 
-class SearchJobView(FormView):
+class SearchJobHomepageView(FormView):
     template_name = 'homepage.html'
     form_class = OffersSearchForm
 

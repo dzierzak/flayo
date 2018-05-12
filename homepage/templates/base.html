@@ -2,6 +2,8 @@
 {% load user_has_group %}
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +27,9 @@
     <script type="text/javascript" src="{% static 'bootstrap/js/plugins/ui/drilldown.js' %}"></script>
 	<script type="text/javascript" src="{% static 'bootstrap/js/plugins/ui/fab.min.js' %}"></script>
 	<!-- /core JS files -->
+    {% block extra_script %}
 
+    {% endblock %}
 </head>
 <body>
 
@@ -88,6 +92,11 @@
 {% block content %}
 
 {% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}
+
 
 </body>
 </html>
