@@ -58,6 +58,3 @@ class OfferDetailsView(DetailView):
             **response_kwargs
         )
 
-# OFFERS SEARCH VIEW
-class OffersSearchView(FormView):
-    template_name = 'search_job_form.html'
