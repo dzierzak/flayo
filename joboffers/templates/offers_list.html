@@ -1,533 +1,149 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-
-
-
-
-	<!-- Page container -->
-	<div class="page-container">
-
-		<!-- Page content -->
-		<div class="page-content">
-
-			<!-- Main sidebar -->
-			<div class="sidebar sidebar-main sidebar-default sidebar-separate">
-				<div class="sidebar-content">
-
-					<!-- Sidebar search -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-search4 text-size-base position-left"></i>
-								Filter
-							</div>
-						</div>
-
-						<div class="panel-body">
-							<form action="#">
-								<div class="form-group">
-									<div class="has-feedback has-feedback-left">
-										<input type="search" class="form-control" placeholder="Job title or keywords">
-										<div class="form-control-feedback">
-											<i class="icon-reading text-size-large text-muted"></i>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="has-feedback has-feedback-left">
-										<input type="search" class="form-control" placeholder="Location">
-										<div class="form-control-feedback">
-											<i class="icon-pin-alt text-size-large text-muted"></i>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="checkbox">
-										<label class="display-block">
-											<input type="checkbox" class="styled">
-											Full time
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label class="display-block">
-											<input type="checkbox" class="styled">
-											Part time
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label class="display-block">
-											<input type="checkbox" class="styled">
-											Remote
-										</label>
-									</div>
-								</div>
-
-								<button type="submit" class="btn bg-blue btn-block">
-									<i class="icon-search4 text-size-base position-left"></i>
-									Find jobs
-								</button>
-							</form>
-						</div>
-					</div>
-					<!-- /sidebar search -->
-
-
-					<!-- Location selection -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-pin-alt position-left"></i>
-								Location
-							</div>
-
-							<div class="heading-elements not-collapsible">
-								<a href="#" class="heading-text">+ Add</a>
-							</div>
-						</div>
-
-						<form action="#">
-							<div class="panel-body">
-								<div class="form-group">
-									<div class="checkbox no-margin-top">
-										<label>
-											<input type="checkbox" class="styled">
-											Amsterdam, North Holland Province, Netherlands
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Koog aan de Zaan, North Holland Province, Netherlands
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Amsterdam Binnenstad en Oostelijk Havengebied, North Holland Province, Netherlands
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Hoofddorp, North Holland Province, Netherlands
-										</label>
-									</div>
-
-									<div class="checkbox no-margin-bottom">
-										<label>
-											<input type="checkbox" class="styled">
-											Alkmaar, North Holland Province, Netherlands
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel-footer no-padding">
-								<a href="#" class="btn btn-default btn-block no-border">All locations</a>
-							</div>
-						</form>
-					</div>
-					<!-- /location selection -->
-
-
-					<!-- Title selection -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-menu7 position-left"></i>
-								Job title
-							</div>
-
-							<div class="heading-elements not-collapsible">
-								<a href="#" class="heading-text">+ Add</a>
-							</div>
-						</div>
-
-						<form action="#">
-							<div class="panel-body">
-								<div class="form-group">
-									<div class="checkbox no-margin-top">
-										<label>
-											<input type="checkbox" class="styled">
-											Developer
-											<span class="text-muted text-size-small">&nbsp;(38)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Front end designer
-											<span class="text-muted text-size-small">&nbsp;(43)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											UX designer
-											<span class="text-muted text-size-small">&nbsp;(74)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Software engineer
-											<span class="text-muted text-size-small">&nbsp;(25)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Full stack designer
-											<span class="text-muted text-size-small">&nbsp;(12)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Motion designer
-											<span class="text-muted text-size-small">&nbsp;(53)</span>
-										</label>
-									</div>
-
-									<div class="checkbox no-margin-bottom">
-										<label>
-											<input type="checkbox" class="styled">
-											PHP developer
-											<span class="text-muted text-size-small">&nbsp;(19)</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel-footer no-padding">
-								<a href="#" class="btn btn-default btn-block no-border">All job titles</a>
-							</div>
-						</form>
-					</div>
-					<!-- /title selection -->
-
-
-					<!-- Industry -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-collaboration position-left"></i>
-								Industry
-							</div>
-
-							<div class="heading-elements not-collapsible">
-								<a href="#" class="heading-text">+ Add</a>
-							</div>
-						</div>
-
-						<form action="#">
-							<div class="panel-body">
-								<div class="form-group">
-									<div class="checkbox no-margin-top">
-										<label>
-											<input type="checkbox" class="styled">
-											Arts and design
-											<span class="text-muted text-size-small">&nbsp;(32)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Engineering
-											<span class="text-muted text-size-small">&nbsp;(65)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Computer Software
-											<span class="text-muted text-size-small">&nbsp;(235)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Financial Services
-											<span class="text-muted text-size-small">&nbsp;(26)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Service Industry
-											<span class="text-muted text-size-small">&nbsp;(94)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Healthcare
-											<span class="text-muted text-size-small">&nbsp;(35)</span>
-										</label>
-									</div>
-
-									<div class="checkbox no-margin-bottom">
-										<label>
-											<input type="checkbox" class="styled">
-											Law Enforcement
-											<span class="text-muted text-size-small">&nbsp;(40)</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel-footer no-padding">
-								<a href="#" class="btn btn-default btn-block no-border">All industries</a>
-							</div>
-						</form>
-					</div>
-					<!-- /industry -->
-
-
-					<!-- Company selection -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-briefcase3 position-left"></i>
-								Company
-							</div>
-
-							<div class="heading-elements not-collapsible">
-								<a href="#" class="heading-text">+ Add</a>
-							</div>
-						</div>
-
-						<form action="#">
-							<div class="panel-body">
-								<div class="form-group">
-									<div class="checkbox no-margin-top">
-										<label>
-											<input type="checkbox" class="styled">
-											Amazon
-											<span class="text-muted text-size-small">&nbsp;(43)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											The North Face
-											<span class="text-muted text-size-small">&nbsp;(124)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Transfer Wise
-											<span class="text-muted text-size-small">&nbsp;(67)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											ING Bank
-											<span class="text-muted text-size-small">&nbsp;(37)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Facebook
-											<span class="text-muted text-size-small">&nbsp;(28)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Dell
-											<span class="text-muted text-size-small">&nbsp;(67)</span>
-										</label>
-									</div>
-
-									<div class="checkbox no-margin-bottom">
-										<label>
-											<input type="checkbox" class="styled">
-											Microsoft
-											<span class="text-muted text-size-small">&nbsp;(57)</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel-footer no-padding">
-								<a href="#" class="btn btn-default btn-block no-border">All companies</a>
-							</div>
-						</form>
-					</div>
-					<!-- /company selection -->
-
-
-					<!-- Specific skills -->
-					<div class="panel panel-white">
-						<div class="panel-heading">
-							<div class="panel-title text-semibold">
-								<i class="icon-stars position-left"></i>
-								Specific skills
-							</div>
-
-							<div class="heading-elements not-collapsible">
-								<a href="#" class="heading-text">+ Add</a>
-							</div>
-						</div>
-
-						<form action="#">
-							<div class="panel-body">
-								<div class="form-group">
-									<div class="checkbox no-margin-top">
-										<label>
-											<input type="checkbox" class="styled">
-											JavaScript
-											<span class="text-muted text-size-small">&nbsp;(53)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											HTML5, SCSS/SASS
-											<span class="text-muted text-size-small">&nbsp;(36)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Wireframing
-											<span class="text-muted text-size-small">&nbsp;(21)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Scrum
-											<span class="text-muted text-size-small">&nbsp;(8)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Grunt/gulp/bower
-											<span class="text-muted text-size-small">&nbsp;(68)</span>
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Node.js
-											<span class="text-muted text-size-small">&nbsp;(32)</span>
-										</label>
-									</div>
-
-									<div class="checkbox no-margin-bottom">
-										<label>
-											<input type="checkbox" class="styled">
-											AngularJS
-											<span class="text-muted text-size-small">&nbsp;(94)</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel-footer no-padding">
-								<a href="#" class="btn btn-default btn-block no-border">All skills</a>
-							</div>
-						</form>
-					</div>
-					<!-- /specific skills -->
-
-
-
-				</div>
-			</div>
-			<!-- /main sidebar -->
-
-
-			<!-- Main content -->
-			<div class="content-wrapper">
-                {% for offer in offers_list %}
-				<!-- Cards layout -->
-				<ul class="media-list content-group">
-					<li class="media panel panel-body stack-media-on-mobile">
-						<div class="media-left">
-							<a href="#">
-								<img src="assets/images/placeholder.jpg" class="img-rounded img-lg" alt="">
-							</a>
-						</div>
-
-						<div class="media-body">
-							<h6 class="media-heading text-semibold">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-main sidebar-default sidebar-separate">
+            <div class="sidebar-content">
+
+                <!-- Sidebar search -->
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <div class="panel-title text-semibold">
+                            <i class="icon-search4 text-size-base position-left"></i> Filter
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <form action="" method="POST"> {% csrf_token %}
+                            <div class="form-group">
+                                <div class="has-feedback has-feedback-left">
+                                    <div class="ui-widget">
+                                        <input type="search" class="form-control" name="position" id="id_position" value="{{ given_position }}" placeholder="eg. Python Developer">
+                                    </div>
+                                    <div class="form-control-feedback">
+                                        <i class="icon-reading text-size-large text-muted"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="has-feedback has-feedback-left">
+                                    <div class="ui-widget">
+                                        <input type="search" class="form-control" name="city" id="id_city" value="{{ given_city }}" placeholder="eg. Warsaw">
+                                    </div>
+                                    <div class="form-control-feedback">
+                                        <i class="icon-pin-alt text-size-large text-muted"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn bg-blue btn-block">
+                                <i class="icon-search4 text-size-base position-left"></i> Find jobs
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /sidebar search -->
+
+            </div>
+        </div>
+        <!-- /main sidebar -->
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+            {% for offer in offers_list %}
+            <!-- Cards layout -->
+            <ul class="media-list content-group">
+                <li class="media panel panel-body stack-media-on-mobile">
+                    <div class="media-left">
+                        <a href="#">
+                            <img src="assets/images/placeholder.jpg" class="img-rounded img-lg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="media-body">
+                        <h6 class="media-heading text-semibold">
 								<a href="{% url 'offer_details' offer.pk %}">{{ offer.position }}</a>
 							</h6>
 
-							<ul class="list-inline list-inline-separate text-muted mb-10">
-								<li><a href="#" class="text-muted">{{ offer.company_name }}</a></li>
-								<li>Amsterdam, Netherlands</li>
-							</ul>
+                        <ul class="list-inline list-inline-separate text-muted mb-10">
+                            <li><a href="#" class="text-muted">{{ offer.company_name }}</a></li>
+                            <li>{{ offer.city }}, {{ offer.country }}</li>
+                        </ul>
 
-							Extended kindness trifling remember he confined outlived if. Assistance sentiments yet unpleasing say. Open they an busy they my such high. An active dinner wishes at unable hardly no talked on. Immediate him her resolving his favourite. Wished denote abroad at branch at. Mind what no by kept.
-						</div>
+                        Extended kindness trifling remember he confined outlived if. Assistance sentiments yet unpleasing say. Open they an busy they my such high. An active dinner wishes at unable hardly no talked on. Immediate him her resolving his favourite. Wished denote abroad at branch at. Mind what no by kept.
+                    </div>
 
-						<div class="media-right text-nowrap">
-							<span class="label bg-blue">New</span>
-						</div>
-					</li>
+                    <div class="media-right text-nowrap">
+                        <span class="label bg-blue">New</span>
+                    </div>
+                </li>
 
-				</ul>
-                {% endfor %}
-				<!-- /cards layout -->
+            </ul>
+            {% endfor %}
+            <!-- /cards layout -->
 
+            <!-- Pagination -->
+            <div class="text-center content-group-lg pt-20">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#"><i class="icon-arrow-small-left"></i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><i class="icon-arrow-small-right"></i></a></li>
+                </ul>
+            </div>
+            <!-- /pagination -->
 
-				<!-- Pagination -->
-				<div class="text-center content-group-lg pt-20">
-					<ul class="pagination">
-						<li class="disabled"><a href="#"><i class="icon-arrow-small-left"></i></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#"><i class="icon-arrow-small-right"></i></a></li>
-					</ul>
-				</div>
-				<!-- /pagination -->
+        </div>
+        <!-- /main content -->
 
-			</div>
-			<!-- /main content -->
+    </div>
+    <!-- /page content -->
 
-		</div>
-		<!-- /page content -->
+</div>
 
-	</div>
+{% endblock %} {% block extra_js %}
+<script>
+    $(document).ready(function() {
+        var location_input = $('input[id="id_position"]');
+        location_input.autocomplete({
+            source: "/api/get_position/",
+            minLength: 2
+        });
+    });
+
+    //   keeps same width as box
+    jQuery.ui.autocomplete.prototype._resizeMenu = function() {
+        var ul = this.menu.element;
+        ul.outerWidth(this.element.outerWidth());
+    }
+</script>
+
+<script>
+    $(document).ready(function() {
+        var location_input = $('input[id="id_city"]');
+        location_input.autocomplete({
+            source: "/api/get_city/",
+            minLength: 2
+        });
+    });
+
+    //   keeps same width as box
+    jQuery.ui.autocomplete.prototype._resizeMenu = function() {
+        var ul = this.menu.element;
+        ul.outerWidth(this.element.outerWidth());
+    }
+</script>
 
 {% endblock %}

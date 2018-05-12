@@ -7,8 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from django.views import View
 from .models import Offer
-from .forms import OfferAddForm
-
+from .forms import OfferAddForm, OffersSearchForm
 
 class OfferAddView(LoginRequiredMixin, CreateView):
     login_url = '/login'
@@ -25,12 +24,28 @@ class OfferAddView(LoginRequiredMixin, CreateView):
 
 
 # BROWSE OFFERS VIEW
-class OffersListView(View):
-    def get(self, request):
-        return render(request, 'offers_list.html', {
+class OffersListView(FormView):
 
-            'offers_list': Offer.objects.all().order_by('-id')
-})
+    template_name = 'offers_list.html'
+    form_class = OffersSearchForm
+
+    def get_context_data(self, **kwargs):
+        """Get view context dictionary."""
+        context = super(OffersListView, self).get_context_data(**kwargs)
+        context['offers_list'] = Offer.objects.all().order_by('-id')
+        context['new'] = False
+        return context
+
+    def form_valid(self, form):
+        position = form.cleaned_data['position']
+        city = form.cleaned_data['city']
+        offers_list = Offer.objects.filter(city__city__icontains=city).filter(position__icontains=position)
+        return render(self.request, 'offers_list.html', {
+
+            'offers_list': offers_list,
+            'given_position': position,
+            'given_city': city
+        })
 
 
 # OFFER DETAIL VIEW

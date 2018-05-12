@@ -46,4 +46,6 @@ class OfferAddForm(forms.ModelForm):
     }
 
 
-
+class OffersSearchForm(forms.Form):
+    position = forms.CharField(required=False)
+    city = forms.CharField(required=False)
