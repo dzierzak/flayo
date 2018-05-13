@@ -7,13 +7,12 @@ from django.contrib.auth import (authenticate,
                                  login,
                                  logout,
                                  )
+from django.contrib import messages
 from django.contrib.auth.models import User, Permission, Group
 import json
 from .forms import UserLoginForm, UserRegisterForm, CompanyRegisterForm, OffersSearchForm
 from .models import Company
 from joboffers.models import Offer
-from django.db.models import Q
-
 
 
 
@@ -43,6 +42,8 @@ class UserLoginView(View):
             if user is not None:
                 login(request, user)
                 return redirect('/')
+            else:
+                messages.error(request, "Incorrect credentials")
 
         return render(request, self.template_name, {
 

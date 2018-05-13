@@ -9,7 +9,6 @@
 
         <!-- Main content -->
         <div class="content-wrapper">
-
             <form action="" method="post" class="login-form">
                 <div class="panel panel-body">
                     <div class="text-center">
@@ -30,7 +29,13 @@
                             <i class="icon-lock2 text-muted"></i>
                         </div>
                     </div>
-
+                    <div class="login-errors">
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                              {% endfor %}
+                        {% endif %}
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn bg-pink-400 btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
                     </div>
@@ -40,11 +45,9 @@
                     </div>
                 </div>
             </form>
-
         </div>
         <!-- /main content -->
 
-    </div>
     <!-- /page content -->
 
 </div>
