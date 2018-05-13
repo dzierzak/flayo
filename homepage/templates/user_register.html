@@ -3,9 +3,111 @@
 
 {% block content %}
 
-<div align="center">
-    {% crispy form %}
-</div>
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Registration form -->
+				<form action="" method="POST"> {% csrf_token %}
+                                        {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger col-lg-6 col-lg-offset-3">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger col-lg-6 col-lg-offset-3">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+					<div class="row">
+						<div class="col-lg-6 col-lg-offset-3">
+							<div class="panel">
+								<div class="panel-body">
+									<div class="text-center">
+										<div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
+										<h5 class="content-group-lg">Create <b>user</b> account <small class="display-block">All fields are required</small></h5>
+									</div>
+
+									<div class="form-group has-feedback">
+										<input type="text" name="username" id="id_username" class="form-control" placeholder="Choose username" required>
+										<div class="form-control-feedback">
+											<i class="icon-user-plus text-muted"></i>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group has-feedback">
+												<input type="password" class="form-control" placeholder="Create password" name="password" id="id_password" required>
+												<div class="form-control-feedback">
+													<i class="icon-user-lock text-muted"></i>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group has-feedback">
+												<input type="password" class="form-control" placeholder="Repeat password" name="password_confirm" id="id_password_confirm" required>
+												<div class="form-control-feedback">
+													<i class="icon-user-lock text-muted"></i>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group has-feedback">
+												<input type="email" name="email" id="id_email" class="form-control" placeholder="Your email" required>
+												<div class="form-control-feedback">
+													<i class="icon-mention text-muted"></i>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group has-feedback">
+												<input type="email" name="email_confirm" id="id_email_confirm" class="form-control" placeholder="Repeat email" required>
+												<div class="form-control-feedback">
+													<i class="icon-mention text-muted"></i>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+
+									</div>
+
+									<div class="clearfix">
+										<a href="{% url 'login_view' %}" class="btn btn-default pull-left"><i class="icon-arrow-left13 position-left"></i> Back to login form</a>
+										<button type="submit" class="btn bg-pink-400 btn-labeled btn-labeled-right pull-right"><b><i class="icon-plus3"></i></b> Create account</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</form>
+				<!-- /registration form -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
 
 
 
