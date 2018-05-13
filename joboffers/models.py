@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class City(models.Model):
     city = models.CharField(max_length=64)
-    city_english = models.CharField(max_length=64)
 
     def __str__(self):
         return self.city
@@ -13,23 +12,12 @@ class City(models.Model):
 
 class Certificate(models.Model):
     certificate = models.CharField(max_length=64)
-    certificate_english = models.CharField(max_length=64)
 
     def __str__(self):
         return self.certificate
 
 
 class Offer(models.Model):
-    # Countries
-    POLAND = 'Poland'
-    UK = 'United Kingdom'
-    GERMANY = 'Germany'
-
-    COUNTRIES_CHOICES = (
-        (POLAND, _('Poland')),
-        (UK, _('United Kingdom')),
-        (GERMANY, _('Germany'))
-    )
 
     # Employment statuses
     CONTRACT_WITH_NO_PERIOD = "CONTRACT WITH NO PERIOD"
@@ -59,7 +47,6 @@ class Offer(models.Model):
     position = models.CharField(max_length=64)
     # location
     city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
-    country = models.CharField(max_length=64, choices=COUNTRIES_CHOICES, default=POLAND)
     # offer description
     description = models.CharField(max_length=9000, null=True)
     # salaries info

@@ -51,38 +51,42 @@
                                 </div>
                             </div>
 
+
                             <div class="row">
+
                                 <div class="col-md-6">
                                     <div class="form-group" style="padding-left: 10px">
                                         <label>Select city:</label>
                                         {% include 'partials/input_select_with_tooltip.html' with field=form.city %}
                                     </div>
+
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Select country:</label>
-                                        {% include 'partials/input_select_with_tooltip.html' with field=form.country %}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group" style="padding-left: 10px">
                                         <label>Employment status:</label>
                                         {% include 'partials/input_select_with_tooltip.html' with field=form.employment_status %}
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+
+                            </div>
+
+                            <div class="row">
+
+
+                                                                    <div class="col-md-6">
                                     <div class="form-group">
-                                        <div class="form-group">
+                                        <div class="form-group" style="padding-left: 10px">
                                             <label>Contact email:</label>
                                             <input type="text" name="contact_email" id="id_contact_email" class="form-control" placeholder="Contact email for candidates">
                                         </div>
                                     </div>
                                 </div>
+
+
+                            </div>
+
 
                     </fieldset>
 
