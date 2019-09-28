@@ -76,9 +76,9 @@
 							</ul>
 						</li>
                         {% else %}
-                        					<li><a href="/signupu">Sign up User</a></li>
-                                            <li><a href="/signupc">Sign up Company</a></li>
-                                            <li><a href="/login">Log in</a></li>
+                        					<li><a href="{% url 'signupu-view' %}">Sign up User</a></li>
+                                            <li><a href="{% url 'signupc-view' %}">Sign up Company</a></li>
+                                            <li><a href="{% url 'login-view' %}">Log in</a></li>
 
                         {% endif %}
 
